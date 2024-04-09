@@ -115,6 +115,7 @@ class firstUi(QWidget):
         self.COUNTER = 0
         self.work = showLabels(self)
         self.state = False
+        self.alarPath = ""
 
     def set_ui(self):
         self.picture.setPixmap(QPixmap('vO9e6yZC89.jpg'))
@@ -123,7 +124,9 @@ class firstUi(QWidget):
 
     def slot_init(self):
         self.file.clicked.connect(self.msgPicture)
-        self.alarm.clicked.connect(self.msgAlarm)
+        self.alarm01.toggled.connect(lambda :self.radio(self.alarm01))
+        self.alarm02.toggled.connect(lambda: self.radio(self.alarm02))
+        self.alarm03.toggled.connect(lambda: self.radio(self.alarm03))
         self.play_sound.clicked.connect(self._playSound)
         self.comfirm.clicked.connect(self.judge)
         self.lineEdit.editingFinished.connect(lambda: dialog.getCommand(self.lineEdit.text()))
@@ -136,11 +139,11 @@ class firstUi(QWidget):
         self.showPicture(fileName)
         self.EAR = get_ear.get_ear(fileName)
 
-    def msgAlarm(self, Filepath):
-        # 点击按钮出现文件夹位置
-        fileName, fileType = QtWidgets.QFileDialog.getOpenFileName(None, "选择上传的人脸", "./",
-                                                                   "Sound (*.wav)")  # 起始路径
-        self.alarmPath.setText(fileName)
+
+    def radio(self,button):
+        if button.text() ==  "音频1":
+            if button.isChecked():
+                self.alarPath = "./audio/alarm.wav"
 
     def showPicture(self, FilePath):
         if FilePath != '':

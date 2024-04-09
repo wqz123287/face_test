@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>542</width>
+    <width>741</width>
     <height>307</height>
    </rect>
   </property>
@@ -104,32 +104,27 @@
       <item>
        <layout class="QVBoxLayout" name="verticalLayout_6" stretch="2,2">
         <item>
-         <layout class="QVBoxLayout" name="verticalLayout" stretch="3,1">
+         <layout class="QVBoxLayout" name="verticalLayout" stretch="0,1">
           <item>
-           <layout class="QHBoxLayout" name="horizontalLayout">
+           <layout class="QVBoxLayout" name="verticalLayout_8">
             <item>
-             <widget class="QPushButton" name="alarm">
-              <property name="maximumSize">
-               <size>
-                <width>3000</width>
-                <height>20</height>
-               </size>
-              </property>
+             <widget class="QRadioButton" name="alarm01">
               <property name="text">
-               <string>选择音乐</string>
+               <string>音频1</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QLabel" name="alarmPath">
-              <property name="maximumSize">
-               <size>
-                <width>3000</width>
-                <height>20</height>
-               </size>
-              </property>
+             <widget class="QRadioButton" name="alarm02">
               <property name="text">
-               <string/>
+               <string>音频2</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QRadioButton" name="alarm03">
+              <property name="text">
+               <string>音频3</string>
               </property>
              </widget>
             </item>
@@ -138,7 +133,7 @@
           <item>
            <widget class="QPushButton" name="play_sound">
             <property name="text">
-             <string>PushButton</string>
+             <string>播放</string>
             </property>
            </widget>
           </item>
