@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>741</width>
-    <height>307</height>
+    <width>542</width>
+    <height>335</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -182,6 +182,13 @@
       <widget class="QPushButton" name="comfirm">
        <property name="text">
         <string>确认</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="over">
+       <property name="text">
+        <string>结束</string>
        </property>
       </widget>
      </item>
