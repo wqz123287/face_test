@@ -43,7 +43,7 @@ def get_ear(filename):
 
         ear = (leftEAR + rightEAR) / 2.0
         print(ear)
-        return ear/2
+        return ear
 
 
 

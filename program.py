@@ -75,12 +75,17 @@ class showLabels(QThread):
                 cv2.drawContours(frame, [leftEyeHull], -1, (0, 255, 0), 1)
                 cv2.drawContours(frame, [rightEyeHull], -1, (0, 255, 0), 1)
 
-                if ear < self.ui.EAR:
-                    cv2.putText(frame, 'ALARM', (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
-                    if not self.ui.ALARM_ON:
-                        self.ui.ALARM_ON = True
 
-                        self.trigger.emit()
+
+                if ear < self.ui.EAR:
+                    self.ui.COUNTER += 1
+
+                    if self.ui.COUNTER >= self.ui.EYE_AR_CONSE_FRAMES:
+                        cv2.putText(frame, 'ALARM', (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
+                        if not self.ui.ALARM_ON:
+                            self.ui.ALARM_ON = True
+
+                            self.trigger.emit()
 
 
                 else:
@@ -111,7 +116,7 @@ class firstUi(QWidget):
         self.slot_init()
         self.EAR = int(0)
         self.ALARM_ON = False
-        self.EYE_AR_CONSE_FRAMES = 48
+        self.EYE_AR_CONSE_FRAMES = 20
         self.COUNTER = 0
         self.work = showLabels(self)
         self.state = False
