@@ -24,6 +24,10 @@ class showLabels(QThread):
         super(showLabels, self).__init__()
         self.ui = ui
 
+
+    def __del__(self):
+        self.wait()
+
     def run(self):
         # show_label._show(self.ui, self.ui.alarmPath.text(), self.ui.video)
         detector = dlib.get_frontal_face_detector()  # 创建人脸检测器
@@ -88,5 +92,5 @@ class showLabels(QThread):
                 pixmap = QPixmap.fromImage(Qframe)
                 self.ui.video.setPixmap(pixmap)
             else:
-                pixmap = QPixmap("first.png")
+                pixmap = QPixmap("./images/first.png")
                 self.ui.video.setPixmap(pixmap)

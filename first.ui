@@ -6,14 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>542</width>
-    <height>335</height>
+    <width>625</width>
+    <height>286</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="4,2,1">
+  <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="8,2">
    <item>
     <widget class="QFrame" name="frame">
      <property name="frameShape">
@@ -22,47 +22,18 @@
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
-     <layout class="QVBoxLayout" name="verticalLayout_4">
+     <layout class="QVBoxLayout" name="verticalLayout_9">
       <item>
-       <layout class="QVBoxLayout" name="verticalLayout_2" stretch="1,3">
+       <layout class="QVBoxLayout" name="verticalLayout_7" stretch="2,8">
         <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="1,3,3">
+         <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="8">
           <item>
-           <widget class="QPushButton" name="file">
+           <widget class="QLCDNumber" name="time">
             <property name="maximumSize">
              <size>
-              <width>100</width>
-              <height>40</height>
+              <width>16777215</width>
+              <height>120</height>
              </size>
-            </property>
-            <property name="text">
-             <string>选择图片</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLabel" name="path">
-            <property name="maximumSize">
-             <size>
-              <width>80</width>
-              <height>100</height>
-             </size>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLabel" name="picture">
-            <property name="maximumSize">
-             <size>
-              <width>80</width>
-              <height>100</height>
-             </size>
-            </property>
-            <property name="text">
-             <string>TextLabel</string>
             </property>
            </widget>
           </item>
@@ -93,104 +64,147 @@
     </widget>
    </item>
    <item>
-    <widget class="QFrame" name="frame_4">
-     <property name="frameShape">
-      <enum>QFrame::StyledPanel</enum>
-     </property>
-     <property name="frameShadow">
-      <enum>QFrame::Raised</enum>
-     </property>
-     <layout class="QVBoxLayout" name="verticalLayout_7">
-      <item>
-       <layout class="QVBoxLayout" name="verticalLayout_6" stretch="2,2">
-        <item>
-         <layout class="QVBoxLayout" name="verticalLayout" stretch="0,1">
-          <item>
-           <layout class="QVBoxLayout" name="verticalLayout_8">
-            <item>
-             <widget class="QRadioButton" name="alarm01">
-              <property name="text">
-               <string>音频1</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QRadioButton" name="alarm02">
-              <property name="text">
-               <string>音频2</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QRadioButton" name="alarm03">
-              <property name="text">
-               <string>音频3</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <widget class="QPushButton" name="play_sound">
+    <layout class="QVBoxLayout" name="verticalLayout_10" stretch="3,7">
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_4">
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_4">
+         <item>
+          <widget class="QPushButton" name="file">
+           <property name="maximumSize">
+            <size>
+             <width>100</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>选择图片</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="path">
+           <property name="maximumSize">
+            <size>
+             <width>80</width>
+             <height>100</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QLabel" name="picture">
+         <property name="maximumSize">
+          <size>
+           <width>300</width>
+           <height>400</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>TextLabel</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout" stretch="2,1">
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_6" stretch="2,2">
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout" stretch="8,2">
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_8">
+             <item alignment="Qt::AlignHCenter">
+              <widget class="QRadioButton" name="alarm01">
+               <property name="text">
+                <string>音频1</string>
+               </property>
+              </widget>
+             </item>
+             <item alignment="Qt::AlignHCenter">
+              <widget class="QRadioButton" name="alarm02">
+               <property name="text">
+                <string>音频2</string>
+               </property>
+              </widget>
+             </item>
+             <item alignment="Qt::AlignHCenter">
+              <widget class="QRadioButton" name="alarm03">
+               <property name="text">
+                <string>音频3</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QPushButton" name="play_sound">
+             <property name="text">
+              <string>播放</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout_3">
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_2">
+             <item>
+              <widget class="QLabel" name="string">
+               <property name="text">
+                <string>输入停止命令</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="lineEdit"/>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_5">
+         <item>
+          <widget class="QComboBox" name="open_close">
+           <item>
             <property name="text">
-             <string>播放</string>
+             <string>显示视频</string>
             </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <layout class="QVBoxLayout" name="verticalLayout_3">
-          <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_2">
-            <item>
-             <widget class="QLabel" name="string">
-              <property name="text">
-               <string>输入停止命令</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLineEdit" name="lineEdit"/>
-            </item>
-           </layout>
-          </item>
-         </layout>
-        </item>
-       </layout>
-      </item>
-     </layout>
-    </widget>
-   </item>
-   <item>
-    <layout class="QVBoxLayout" name="verticalLayout_5">
-     <item>
-      <widget class="QComboBox" name="open_close">
-       <item>
-        <property name="text">
-         <string>显示视频</string>
-        </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>隐藏视频</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="comfirm">
+           <property name="text">
+            <string>确认</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="over">
+           <property name="text">
+            <string>结束</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </item>
-       <item>
-        <property name="text">
-         <string>隐藏视频</string>
-        </property>
-       </item>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="comfirm">
-       <property name="text">
-        <string>确认</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="over">
-       <property name="text">
-        <string>结束</string>
-       </property>
-      </widget>
+      </layout>
      </item>
     </layout>
    </item>
