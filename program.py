@@ -1,4 +1,5 @@
 from PyQt5 import uic
+import cv2
 import sys
 from PyQt5.QtWidgets import QApplication, QWidget, QMessageBox, QDialog
 import PyQt5.QtWidgets as QtWidgets
@@ -11,6 +12,7 @@ import playsound
 import time
 from show_labels import showLabels
 import timer
+
 
 def sound_alarm(path):  # 播放提示铃声
     playsound.playsound(path)
@@ -25,6 +27,7 @@ class firstUi(QWidget):
         super().__init__()
         uic.loadUi("first.ui", self)
 
+        self.warn_time = 0
         self.DailogUi = DailogUi
         self.EAR = int(0)
         self.ALARM_ON = False
@@ -62,6 +65,22 @@ class firstUi(QWidget):
         self.over.clicked.connect(self.overProgram)
         self.time_1.timeout.connect(self.LCD)
         self.open_close.activated.connect(self.changeVideo)
+        self.take_photo_button.clicked.connect(self.get_photo)
+        
+
+    def get_photo(self):
+        cap = cv2.VideoCapture(0)  # 开启摄像头
+        while True:
+            f, frame = cap.read()  # 将摄像头中的一帧图片数据保存
+            cv2.imwrite(f'./images/photo.jpg', frame)  # 将图片保存为本地文件
+            self.showMessage("保存成功")
+            self.EAR = get_ear.get_ear(f'./images/photo.jpg')
+            if self.EAR == None:
+                self.showMessage("请重新上传")
+            else:
+                self.showPicture(f'./images/photo.jpg')
+                self.path.setText(f'./images/photo.jpg')
+            break
 
     def msgPicture(self, Filepath):
         # 点击按钮出现文件夹位置
