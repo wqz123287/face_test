@@ -50,12 +50,6 @@ class DailogUi(QDialog):
             pass
 
 
-
-
-
-
-
-
 def warning(command,filename):
 
     dialog = DailogUi(command,filename)

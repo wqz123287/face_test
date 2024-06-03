@@ -20,7 +20,7 @@ def eye_aspect_ratio(eye):
 class showLabels(QThread):
     trigger = pyqtSignal()
 
-    def __init__(self, ui):
+    def __init__(self, ui,time):
         super(showLabels, self).__init__()
         self.ui = ui
 
@@ -36,11 +36,7 @@ class showLabels(QThread):
         (lStart, lEnd) = face_utils.FACIAL_LANDMARKS_IDXS[
             'left_eye']  # face_utils.FACIAL_LANDMARKS_IDXS是一个字典，其中包含了人脸的各个部分（如眼睛、鼻子、嘴巴等）对应的特征点的索引
         (rStart, rEnd) = face_utils.FACIAL_LANDMARKS_IDXS['right_eye']
-
-        print('[INFO]starting video stream...')
-
         vs = cv2.VideoCapture(0)
-        time.sleep(1.0)
         while self.ui.running:
             hx, frame = vs.read()
             frame = imutils.resize(frame, width=450)
@@ -76,7 +72,6 @@ class showLabels(QThread):
                         cv2.putText(frame, 'ALARM', (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
                         if not self.ui.ALARM_ON:
                             self.ui.ALARM_ON = True
-
                             self.trigger.emit()
 
 

@@ -12,7 +12,7 @@ import playsound
 import time
 from show_labels import showLabels
 import timer
-
+from result import result
 
 def sound_alarm(path):  # 播放提示铃声
     playsound.playsound(path)
@@ -26,14 +26,14 @@ class firstUi(QWidget):
         # 从文件中加载UI定义
         super().__init__()
         uic.loadUi("first.ui", self)
-
+        self.show_result = str()
         self.warn_time = 0
         self.DailogUi = DailogUi
         self.EAR = int(0)
         self.ALARM_ON = False
         self.EYE_AR_CONSE_FRAMES = 20
         self.COUNTER = 0
-        self.work = showLabels(self)
+        self.work = showLabels(self,self.warn_time)
         self.state = False
         self.sumTime = 0
         self.alarmPath = "./audio/alarm.wav"
@@ -126,6 +126,7 @@ class firstUi(QWidget):
         else:
             self.over.setEnabled(True)
             self.file.setEnabled(False)
+            self.take_photo_button.setEnabled(False)
             self.play_sound.setEnabled(False)
             self.lineEdit.setEnabled(False)
             self.comfirm.setEnabled(False)
@@ -133,15 +134,18 @@ class firstUi(QWidget):
             self.alarm02.setEnabled(False)
             self.alarm03.setEnabled(False)
             self.show_camera()
-            self.time_1.start(10)
+            self.time_1.start(1000)
 
     def LCD(self):
         self.sumTime = self.sumTime+1
         self.myThread = timer.myThread(self.sumTime)
         self.myThread.start()
-        self.myThread.mySignal.connect(self.time.display)
+        self.myThread.mySignal.connect(self.get_show_reult)
+        self.time.display(self.show_result)
 
 
+    def get_show_reult(self,result):
+        self.show_result = result
 
     def _playSound(self):
         for i in range(2):
@@ -156,6 +160,7 @@ class firstUi(QWidget):
 
     def showWarn(self):
         if self.state == False:
+            self.warn_time = self.warn_time+1
             self.state = True
             warn.warning(self.lineEdit.text(), self.alarmPath)
             self.state = False
@@ -166,21 +171,22 @@ class firstUi(QWidget):
         self.running = False
         self.over.setEnabled(False)
         self.file.setEnabled(True)
+        self.take_photo_button.setEnabled(True)
         self.play_sound.setEnabled(True)
         self.lineEdit.setEnabled(True)
         self.comfirm.setEnabled(True)
         self.alarm01.setEnabled(True)
         self.alarm02.setEnabled(True)
         self.alarm03.setEnabled(True)
-        self.picture.setPixmap(QPixmap('vO9e6yZC89.jpg'))
         time.sleep(1.0)
         self.running = True
         self.time_1.stop()
-        self.sumTime = 0
         pixmap = QPixmap('')
-        self.picture.setPixmap(pixmap)
-
-
+        self.video.setPixmap(pixmap)
+        result(self.warn_time,self.show_result)
+        self.show_result = 0
+        self.sumTime = 0
+        self.warn_time=0
 class DailogUi(QDialog):
 
     def __init__(self):
